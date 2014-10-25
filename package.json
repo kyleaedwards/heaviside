@@ -1,0 +1,29 @@
+{
+  "name": "heaviside",
+  "version": "0.1.0",
+  "description": "General-purpose pub/sub usable in-window and cross-domain",
+  "keywords": [
+    "heaviside",
+    "cross-domain",
+    "pubsub"
+  ],
+  "bugs": "https://github.com/kyleaedwards/heaviside/issues",
+  "files": [
+    "heaviside.js",
+    "lib/",
+    "LICENSE"
+  ],
+  "main": "heaviside.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kyleaedwards/heaviside"
+  },
+  "author": "Kyle Edwards",
+  "contributors": [
+    "Kyle Edwards <edwards.kyle.a@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^5.9.1"
+  }
+}
