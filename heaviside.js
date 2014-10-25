@@ -44,30 +44,6 @@ _run = function (key, params) {
 
 };
 
-/**
- * Extracts and standardizes function parameters from
- * payload data.
- *
- * @param {?any}       data           Data payload for subscribers
- * @return {array}
- * @private
- */
-_extractParams = function (data) {
-
-  var params = [];
-
-  if ('string' === typeof data) {
-    params = [data];
-  } else if (Object.prototype.toString.call(data) === '[object Array]') {
-    params = data;
-  } else if ('object' === typeof data && data.messageKey) {
-    params = [data.messageKey, data];
-  }
-
-  return params;
-
-};
-
 Heaviside = {
 
   /**
@@ -167,16 +143,18 @@ Heaviside = {
  */
 window.addEventListener('message', function (e) {
 
-  var key;
+  var key,
+      params;
 
   /* If message is not an intended Heaviside array, return. */
   if (!e.data._isHeaviside)
     return;
 
-  var key = e.data.shift(),
-      params = _extractParams(params);
+  key = e.data[0];
+  params = e.data[1];
+
   _run(key, params);
 
 });
 
-modules.exports = Heaviside;
+module.exports = Heaviside;
